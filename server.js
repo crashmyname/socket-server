@@ -7,11 +7,11 @@ const hostname = 'sch-server/socket-server';
 const port = 443;
 
 // Baca sertifikat dan kunci pribadi
-// const options = {
-//   key: fs.readFileSync('D:/laragon/server.key'),
-//   cert: fs.readFileSync('D:/laragon/server.crt'),
-//   ca: fs.readFileSync('D:/laragon/ca-cert.pem')
-// };
+const options = {
+  key: fs.readFileSync('D:/laragon/server.key'),
+  cert: fs.readFileSync('D:/laragon/server.crt'),
+  ca: fs.readFileSync('D:/laragon/ca-cert.pem')
+};
 
 // Buat server HTTPS
 const server = https.createServer(options, (req, res) => {
