@@ -2,15 +2,14 @@ const fs = require('fs');
 const https = require('https');
 const socketIo = require('socket.io');
 
-// const hostname = '10.203.84.25';
-const hostname = 'sch-server/socket-server';
+const hostname = 'sch-server';
 const port = 443;
 
 // Baca sertifikat dan kunci pribadi
 const options = {
-  key: fs.readFileSync('D:/laragon/server.key'),
-  cert: fs.readFileSync('D:/laragon/server.crt'),
-  ca: fs.readFileSync('D:/laragon/ca-cert.pem')
+  key: fs.readFileSync('D:/laragon/etc/ssl/sch-server.key'),
+  cert: fs.readFileSync('D:/laragon/etc/ssl/sch-server.crt'),
+  // ca: fs.readFileSync('C:/laragon/etc/ssl/ca-cert.pem')
 };
 
 // Buat server HTTPS
@@ -138,5 +137,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(port, hostname, () => {
-  console.log(`Server running at https://${hostname}:${port}/`);
+  console.log(`Server running at https://${hostname}:${port}/socket-server`);
 });
